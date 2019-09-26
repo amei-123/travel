@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../../assets/styles/styles.styl';
+@import '~styles/styles.styl';
     .header
         display: flex
         justify-content :space-between
