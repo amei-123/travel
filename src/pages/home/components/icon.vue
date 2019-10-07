@@ -45,6 +45,7 @@ export default {
 
 <style lang="stylus" scoped>
     @import '~styles/styles.styl'
+    @import '~styles/ellipsis.styl'
     .icon-container
         overflow :hidden;
         display :flex;
@@ -66,7 +67,5 @@ export default {
             .icon-detail
                 font-size:12px;
                 color:$textColor;
-                overflow :hidden;
-                text-overflow :ellipsis;
-                white-space :nowrap;
+                ellipsis();
 </style>

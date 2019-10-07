@@ -24,7 +24,7 @@ export default {
                 id:'0001',
                 imgUrl:'https://s.qunarzz.com/vacation_react/around/entry5.png',
                 title:'迪士尼游乐园',
-                desc:'开放了开放了,全场打五折'
+                desc:'开放了开放了,全场打五折开放了开放了,全场打五折'
                 }
                 ,{
                     id:'0002',
@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+    @import '~styles/ellipsis.styl'
     .title
         width :100%;
         margin-top:.2rem;
@@ -62,15 +63,20 @@ export default {
                 padding :.1rem;
             .item-conetent
                 flex :1;
+                min-width :0;
                 .item-title
                     line-height :.54rem;
                     font-size :.32rem;
+                    color :#000;
+                    ellipsis();
                 .item-desc
                     line-height:.4rem;
                     color :#333;
+                    ellipsis();
                 .item-info
                     margin-top:.1rem;
                     line-height :.44rem;
                     background-color :#888;
                     border-radius :.05rem;
+                    
 </style>
