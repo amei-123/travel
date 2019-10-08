@@ -2,7 +2,7 @@
     <div>
         <div class="title">热门推荐</div>
         <ul> 
-            <li  class="itemList" v-for="item in itemArr" :key="item.id">
+            <li  class="itemList" v-for="item in recommendList" :key="item.id">
                 <img :src="item.imgUrl" class="item-img">
                 <div class="item-conetent">
                     <p class="item-title">{{item.title}}</p>
@@ -17,28 +17,12 @@
 <script>
 export default {
     name:'HomeRecommend',
+    props:{
+        recommendList:Array
+    },
     data(){
         return{
-            itemArr:[
-                {
-                id:'0001',
-                imgUrl:'https://s.qunarzz.com/vacation_react/around/entry5.png',
-                title:'迪士尼游乐园',
-                desc:'开放了开放了,全场打五折开放了开放了,全场打五折'
-                }
-                ,{
-                    id:'0002',
-                    imgUrl:'https://s.qunarzz.com/vacation_react/around/entry5.png',
-                    title:'迪士尼游乐园',
-                    desc:'开放了开放了,全场打五折'
-                }
-                ,{
-                    id:'0003',
-                    imgUrl:'https://s.qunarzz.com/vacation_react/around/entry5.png',
-                    title:'迪士尼游乐园',
-                    desc:'开放了开放了,全场打五折'
-                }
-            ]
+        
         }
     }
 }

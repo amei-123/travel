@@ -4,7 +4,7 @@
     <ul>
       <li
         class="item border-bottom"
-        v-for="item in itemArr"
+        v-for="item in weekendList"
         :key="item.id"
       >
         <div class="item-img-wrapper">
@@ -22,28 +22,12 @@
 <script>
 export default {
   name: 'HomeWeekend',
+  props:{
+    weekendList:Array
+  },
   data(){
         return{
-            itemArr:[
-                {
-                id:'0001',
-                imgUrl:'https://img1.qunarzz.com/vc/a9/4e/39/331ab7c6229574d449ab097fb8.jpg_650x360x92.jpg',
-                title:'迪士尼游乐园',
-                desc:'开放了开放了,全场打五折开放了开放了,全场打五折'
-                }
-                ,{
-                    id:'0002',
-                    imgUrl:'https://img1.qunarzz.com/vc/a9/4e/39/331ab7c6229574d449ab097fb8.jpg_650x360x92.jpg',
-                    title:'迪士尼游乐园',
-                    desc:'开放了开放了,全场打五折'
-                }
-                ,{
-                    id:'0003',
-                    imgUrl:'https://img1.qunarzz.com/vc/a9/4e/39/331ab7c6229574d449ab097fb8.jpg_650x360x92.jpg',
-                    title:'迪士尼游乐园',
-                    desc:'开放了开放了,全场打五折'
-                }
-            ]
+      
         }
     }
 }

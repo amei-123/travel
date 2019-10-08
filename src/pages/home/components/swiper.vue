@@ -1,8 +1,8 @@
 <template>
   <div class="img-container">
-    <swiper :options="swiperOption" >
-      <swiper-slide v-for="item in imgArr" :key="item.id">
-        <img :src="item.url" class="swiper-img">
+    <swiper :options="swiperOption" v-if="getListLength">
+      <swiper-slide v-for="item in swiperList" :key="item.id">
+        <img :src="item.imgUrl" class="swiper-img">
       </swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
@@ -12,29 +12,23 @@
 <script>
 export default {
     name:'HomeSwiper',
+    props:{
+      swiperList:Array
+    },
     data() {
       return {
         swiperOption: {
             pagination:'.swiper-pagination',
             loop:true,
             // cancelable:true
-        },
-        imgArr:[
-          {
-            id:'001',
-            url:'https://img1.qunarzz.com/order/comp/1805/2e/6e407f088bfb902.png'
-          },
-          {
-            id:'002',
-            url:'https://img1.qunarzz.com/order/comp/1805/2e/6e407f088bfb902.png'
-          },
-          {
-            id:'003',
-            url:"https://img1.qunarzz.com/order/comp/1805/2e/6e407f088bfb902.png"
-          }
-        ]
+        }
       }
     },
+    computed:{
+      getListLength(){
+        return this.swiperList.length;
+      }
+    }
 }
 </script>
 
@@ -45,7 +39,7 @@ export default {
     overflow :hidden;
     width :100%;
     height :0;
-    padding-bottom :40%;
+    padding-bottom :32%;
     .swiper-img{
       width :100%;
       height :100%;
