@@ -2,8 +2,15 @@
     <div>
         <city-header></city-header>
         <city-search></city-search>
-        <city-list v-bind:cities='cities' v-bind:hot="hotCities"></city-list>
-        <city-alphabet v-bind:cities='cities'></city-alphabet>
+        <city-list 
+            v-bind:cities='cities' 
+            v-bind:hot="hotCities"
+            v-bind:letter="letter"
+        ></city-list>
+        <city-alphabet 
+            v-bind:cities='cities'
+            v-on:change='handleLetter'
+        ></city-alphabet>
     </div>
 </template>
 
@@ -18,7 +25,8 @@ export default {
     data(){
         return{
             hotCities:[],
-            cities:{}
+            cities:{},
+            letter:''
         }
     },
     components:{
@@ -39,6 +47,9 @@ export default {
                 this.hotCities = data.hotCities;
                 this.cities = data.cities;
             }
+        },
+        handleLetter(value){
+            this.letter = value;
         }
     },
    mounted() {

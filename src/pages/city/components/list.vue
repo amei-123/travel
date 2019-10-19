@@ -17,7 +17,11 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item,key) of cities" v-bind:key="key">
+      <div class="area" 
+        v-for="(item,key) of cities" 
+        v-bind:key="key"
+        v-bind:ref="key"
+    >
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list" v-for="city in item" :key="city.id">
           <div class="item border-bottom">{{city.name}}</div>
@@ -33,12 +37,21 @@ export default {
   name: "CityList",
   props: {
     hot: Array,
-    cities: Object
+    cities: Object,
+    letter : String
   },
   mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper, {
       mouseWheel: true
     });
+  },
+  watch:{
+    letter(){
+        if(this.letter){
+            const element = this.$refs[this.letter][0];
+            this.scroll.scrollToElement(element);//点击相应的字母显示相应的城市区域
+        }
+    }
   }
 };
 </script>
