@@ -5,7 +5,11 @@
         </div>
         <div class="search-content" v-show="keyWord">
             <ul class="search-item border-bottom">
-                <li v-for="item of list" :key="item.id">{{item.name}}</li>
+                <li 
+                    v-for="item of list" 
+                    :key="item.id"
+                    v-on:click="handleClick(item.name)"
+                >{{item.name}}</li>
                 <li v-show="!list.length">未查找到匹配数据!</li>
             </ul>
         </div>
@@ -24,6 +28,12 @@ export default {
   },
   props:{
       cities:Object
+  },
+  methods: {
+    handleClick(city){
+      this.$store.commit('changeCity',city);
+      this.$router.push('/');
+    }
   },
   watch:{
       keyWord(){
