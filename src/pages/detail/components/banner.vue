@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="banner">
+    <div class="banner" v-on:click="handleShowClick">
       <img class="banner-img" src="https://imgs.qunarzz.com/p/tts0/1811/2b/8cc21c8160981f02.jpg_r_390x260x90_819c3305.jpg" />
       <div class="banner-info">
         <div class="banner-tittle">哈哈哈哈哈</div>
@@ -10,7 +10,11 @@
         </div>
       </div>
     </div>
-    <gallary v-bind:imgs="imgs"></gallary>
+    <gallary 
+        v-bind:imgs="imgs" 
+        v-show="showGallary"
+        @handleCloseClick='handleCloseClick'
+    ></gallary>
   </div>
 </template>
 
@@ -23,12 +27,21 @@ export default {
           imgs:[
               "https://imgs.qunarzz.com/p/tts0/1811/2b/8cc21c8160981f02.jpg_r_390x260x90_819c3305.jpg",
               "https://imgs.qunarzz.com/p/tts2/1711/d5/0e0ebe3437863d02.jpg_r_480x320x90_e8bdc303.jpg"
-          ]
+          ],
+          showGallary:false
       }
   },
   components:{
       Gallary
-  }
+  },
+  methods: {
+      handleShowClick(){
+          this.showGallary = true;
+      },
+      handleCloseClick(){
+          this.showGallary = false;
+      }
+  },
 };
 </script>
 

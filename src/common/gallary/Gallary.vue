@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="wrapper"  >
+  <div class="container" v-on:click='handleCloseClick'>
+    <div class="wrapper">
       <swiper :options = "swiperOption ">
         <swiper-slide v-for="(item, index) in imgs" :key="index">
           <img class="gallary-img" :src="item" />
@@ -26,7 +26,12 @@ export default {
             observer: true
         }
       }
-  }
+  },
+  methods: {
+      handleCloseClick(){
+          this.$emit('handleCloseClick')
+      }
+  },
 };
 </script>
 
