@@ -30,6 +30,7 @@ export default {
     },
     methods: {
         handleScroll(){
+            console.log('scroll');
             const topS = document.documentElement.scrollTop;
             if(topS>60){
                 const Opacity = topS/140;
@@ -44,6 +45,9 @@ export default {
     mounted() {
         window.addEventListener('scroll',this.handleScroll)
     },
+    unmounted(){ //对全局事件的解绑
+        window.removeEventListener('scroll')
+    }
 }
 </script>
 
